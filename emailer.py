@@ -10,6 +10,7 @@ def get_emails():
     except FileNotFoundError as err:
         print(err)
     return emails
+
 def get_schedule():
     try:
         schedule_file = open('schedule.txt', 'r')
@@ -17,9 +18,15 @@ def get_schedule():
     except FileNotFoundError as err:
         print(err)
     return schedule
+
+    
 def get_weather_forecast():
-    url = 'http://api.openweathermap.org/data/2.5/weather?q=Barcelona,spain&appid='+ API_KEY
-    weather_request = requests.get(url)
+    api_key_config = open('config.txt', 'r')
+    API_KEY = api_key_config.read()
+    API_KEY = API_KEY.strip()
+    api_key_load = {'appid' : API_KEY}
+    url = 'http://api.openweathermap.org/data/2.5/weather?q=Barcelona,spain'
+    weather_request = requests.get(url, params=api_key_load)
     weather_json = weather_request.json()
 
     print(weather_json)
@@ -30,4 +37,5 @@ def main():
     schedule = get_schedule()
     print(schedule)
     get_weather_forecast()
+    
 main()

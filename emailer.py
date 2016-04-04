@@ -18,7 +18,7 @@ def get_schedule():
         print(err)
     return schedule
 def get_weather_forecast():
-    url = 'http://api.openweathermap.org/data/2.5/weather?q=Barcelona,spain&appid='
+    url = 'http://api.openweathermap.org/data/2.5/weather?q=Barcelona,spain&appid='+ API_KEY
     weather_request = requests.get(url)
     weather_json = weather_request.json()
 

@@ -40,6 +40,7 @@ def get_weather_forecast():
     return forecast
 
 def send_emails(emails, schedule, forecast):
+    #Add your email and password
     server = smtplib.SMTP('smtp.gmail.com', '587')
     server.starttls()
     from_email = input("What is your email? : ')

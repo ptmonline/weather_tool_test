@@ -33,7 +33,9 @@ def get_weather_forecast():
     temp_max = weather_json['main']['temp_max']
     temp_min = weather_json['main']['temp_min']
 
-    forecast = 'The Circus forecast for today is '
+    #forecast max_temp and min_temp are wrong
+
+    forecast = 'The Weather forecast for today is '
     forecast += description + ' with a high of ' + str(int(temp_max))
     forecast += ' and a low of '+ str(int(temp_min))
 
